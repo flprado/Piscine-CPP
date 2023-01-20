@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: florianprado <florianprado@student.42.f    +#+  +:+       +#+         #
+#    By: fprado <fprado@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 22:08:47 by florianprad       #+#    #+#              #
-#    Updated: 2023/01/19 22:13:30 by florianprad      ###   ########.fr        #
+#    Updated: 2023/01/20 15:15:24 by fprado           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
