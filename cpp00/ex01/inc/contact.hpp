@@ -6,7 +6,7 @@
 /*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:11:08 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/20 15:12:25 by fprado           ###   ########.fr       */
+/*   Updated: 2023/01/21 18:50:40 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ class contact
         std::string firstName;
         std::string lastName;
         std::string nickname;
-        int         *phoneNumber;
+        std::string phoneNumber;
         std::string darkestSecret;
 };

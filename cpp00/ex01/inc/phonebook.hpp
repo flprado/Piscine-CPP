@@ -6,7 +6,7 @@
 /*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:13:02 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/20 15:13:40 by fprado           ###   ########.fr       */
+/*   Updated: 2023/01/21 18:46:21 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ class phoneBook
 {
     public:
         contact contacts[8];
-        int nb_contact;
+        int nbContact;
 
 };

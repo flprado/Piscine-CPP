@@ -9,10 +9,13 @@ HEADER_SRCS :=	inc/contact.hpp \
 				inc/phonebook.hpp \
 
 SRCS :=	phonebook.cpp	\
+		command.cpp
 
-OBJS := $(addprefix .objs/, $(SRCS:.cpp=.o))
+OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
 OBJS_DIRS := $(sort $(dir $(OBJS)))
+
+INCLUDE := $(sort $(addprefix -I,$(dir $(HEADER_SRCS))))
 
 NAME := $(PROJECT)
 
@@ -26,8 +29,8 @@ $(OBJS): | $(OBJS_DIRS)
 $(OBJS_DIRS):
 	mkdir -p $@
 
-.objs/%.o: srcs/%.cpp $(HEADER_SRCS)
-	$(CXX) $(CFLAGS) -c $< -o $@
+objs/%.o: src/%.cpp $(HEADER_SRCS)
+	$(CXX) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)
