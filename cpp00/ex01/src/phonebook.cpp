@@ -12,12 +12,13 @@ int main(int argc,  char    **argv)
     std::cin >> str;
     while (str != "EXIT")
     {
+        std::cout << "nb = " << repertory.nbContact << std::endl;
         std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
         std::cin >> str;
         std::cout << "";
         if (str == "ADD")
             newContact(&repertory);
-        else if (str == "SEARCH")
+        if (str == "SEARCH")
             searchContact(&repertory);
         //std::cin >> repertoir.contacts[i].firstName;
         //std::cout << "ton prenom est " << repertoir.contacts[i].firstName;

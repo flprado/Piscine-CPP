@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florianprado <florianprado@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 18:44:09 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/21 19:01:43 by fprado           ###   ########.fr       */
+/*   Updated: 2023/01/22 00:37:56 by florianprad      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,30 @@ void newContact(phoneBook *repertory)
 
 void searchContact(phoneBook    *repertory)
 {
+    int     index;
+    int     cmp;
+
+    cmp = 0;
+    index = 0;
+    std::cout << "     index|";
+    std::cout << "first name|";
+    std::cout << " last name|";
+    std::cout << "  nickname|" << std::endl;
+    for (size_t i = 0; i < 40; i++)
+    {
+        if(i < 9)
+            std::cout << " ";
+        if (i == 9)
+        {
+            std::cout << index;
+            index ++;
+        }
+            cmp = repertory->contacts[index].firstName.length;
+            for (size_t j = 0; j < (10 - cmp); j++)
+                std::cout << " ";
+            std::cout << repertory->contacts[index].firstName;
+            std::cout << "|";
+    }
     
+    (void)repertory;
 }
