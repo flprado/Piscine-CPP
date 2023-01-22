@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florianprado <florianprado@student.42.f    +#+  +:+       +#+        */
+/*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 18:44:09 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/22 00:37:56 by florianprad      ###   ########.fr       */
+/*   Updated: 2023/01/22 18:02:31 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,23 @@ void newContact(phoneBook *repertory)
 
 void searchContact(phoneBook    *repertory)
 {
-    int     index;
+    size_t     index;
     int     cmp;
 
     cmp = 0;
-    index = 0;
-    std::cout << "     index|";
-    std::cout << "first name|";
-    std::cout << " last name|";
-    std::cout << "  nickname|" << std::endl;
-    for (size_t i = 0; i < 40; i++)
+    index = repertory->nbContact;
+    std::cout << "|     Index|" << "First name|" << " Last name|" << "  Nickname|" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+    for (size_t i = 0; i < index; i++)
     {
-        if(i < 9)
-            std::cout << " ";
-        if (i == 9)
-        {
-            std::cout << index;
-            index ++;
-        }
-            cmp = repertory->contacts[index].firstName.length;
-            for (size_t j = 0; j < (10 - cmp); j++)
-                std::cout << " ";
-            std::cout << repertory->contacts[index].firstName;
-            std::cout << "|";
+        std::cout << "|" << std::setw(10);
+        std::cout << i;
+        std::cout << "|" << std::setw(10);
+        std::cout << repertory->contacts[i].firstName;
+        std::cout << "|" << std::setw(10);
+        std::cout << repertory->contacts[i].lastName;
+        std::cout << "|" << std::setw(10);
+        std::cout << repertory->contacts[i].nickname << "|" << std::endl;
     }
     
     (void)repertory;

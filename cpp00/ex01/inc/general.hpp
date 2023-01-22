@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florianprado <florianprado@student.42.f    +#+  +:+       +#+        */
+/*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:12:01 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/22 00:34:44 by florianprad      ###   ########.fr       */
+/*   Updated: 2023/01/22 17:40:52 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 #include "contact.hpp"
 #include "phonebook.hpp"
 
