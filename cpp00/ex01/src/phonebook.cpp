@@ -8,11 +8,12 @@ int main(int argc,  char    **argv)
    // int i = 0;
     std::string str;
     phoneBook repertory;
-    //std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
+    repertory.nbContact = 0;
+    std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
     while (str != "EXIT")
     {
-        std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
         std::getline(std::cin, str);
+        std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
         std::cout << "";
         if (str == "ADD")
             newContact(&repertory);
