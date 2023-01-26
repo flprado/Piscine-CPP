@@ -4,11 +4,11 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 PROJECT := zombie
 
-HEADER_SRCS :=	inc/zombie.hpp \
+HEADER_SRCS :=	inc/Zombie.hpp \
+				inc/general.hpp \
 				inc/zombieHorde.hpp
 
 SRCS :=	zombie.cpp	\
-		command.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
