@@ -6,12 +6,12 @@
 /*   By: florianprado <florianprado@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 16:34:15 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/27 17:38:48 by florianprad      ###   ########.fr       */
+/*   Updated: 2023/01/27 18:11:18 by florianprad      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Zombie.hpp"
+#include "../inc/Zombie.hpp"
 
 void    randomChump(std::string name)
 {

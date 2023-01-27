@@ -6,9 +6,9 @@ PROJECT := zombie
 
 HEADER_SRCS :=	inc/Zombie.hpp \
 				inc/general.hpp \
-				inc/zombieHorde.hpp
 
 SRCS :=	zombie.cpp	\
+		main.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 

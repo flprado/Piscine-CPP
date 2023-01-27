@@ -6,11 +6,12 @@
 /*   By: florianprado <florianprado@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 16:34:28 by fprado            #+#    #+#             */
-/*   Updated: 2023/01/27 17:33:47 by florianprad      ###   ########.fr       */
+/*   Updated: 2023/01/27 18:07:07 by florianprad      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+# ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 # include <iostream>
 # include <string>
 
@@ -21,11 +22,14 @@ class Zombie
 
     public: 
         Zombie(void);
-        void    giveName(std::string name);
         ~Zombie(void);
+        void    giveName(std::string name);
         void announce(void);
 };
 
-void    randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 Zombie  *newZombie(std::string name);
+void    randomChump(std::string name);
 
+
+#endif
