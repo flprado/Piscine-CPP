@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: florianprado <florianprado@student.42.f    +#+  +:+       +#+         #
+#    By: fprado <fprado@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 18:34:35 by florianprad       #+#    #+#              #
-#    Updated: 2023/01/27 19:09:33 by florianprad      ###   ########.fr        #
+#    Updated: 2023/01/28 16:10:11 by fprado           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,13 @@ PURPLE = \033[0;95m
 BLUE = \033[0;34m
 BOLD = \033[1m
 
-SRCS		=	./main.cpp
-
-INCLUDES	=	 ./
+SRCS		=	./src/main.cpp \
+				./src/HumanA.cpp \
+				./src/HumanB.cpp \
+				./src/Weapon.cpp
+INCLUDES	=	 ./inc/HumanA.hpp \
+				 ./inc/humanB.hpp \
+				 ./inc/Weapon.hpp
 
 HEAD		=	./
 
@@ -43,7 +47,7 @@ all:		${NAME}
 
 ${NAME}:	${OBJS}
 			@${CC} ${CFLAGS} -I${HEAD} -o ${NAME} $(OBJS)
-			@echo "${GREEN}violence program	has been created\n${NC}"
+			@echo "${GREEN}human program	has been created\n${NC}"
 
 clean:
 			@${RM} ${OBJS}
@@ -51,7 +55,7 @@ clean:
 
 fclean:		clean
 			@${RM} ${NAME}
-			@echo "${GREEN}[ OK ]${RED}violence program	deleted${NC}"
+			@echo "${GREEN}[ OK ]${RED}human program	deleted${NC}"
 
 re :		fclean all
 

@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 19:37:18 by florianprad       #+#    #+#             */
-/*   Updated: 2023/01/28 16:16:21 by fprado           ###   ########.fr       */
+/*   Created: 2023/01/28 15:32:59 by fprado            #+#    #+#             */
+/*   Updated: 2023/01/28 16:18:00 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/HumanA.hpp"
+# include "../inc/HumanB.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanB::HumanB(void)
+{
+    return ;
+}
+
+HumanB::HumanB(std::string name)
 {
     this->name = name;
-    this->weapon = weapon;
     
     return ;
 }
 
-HumanA::~HumanA()
+HumanB::~HumanB()
 {
     return ;
 }
 
 
-void HumanA::attack(void)
+void HumanB::attack(void)
 {
     std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl; 
 }
 
-void HumanA::setWeapon(Weapon weapon)
+void HumanB::setWeapon(Weapon weapon)
 {
     this->weapon = weapon;
     return ;

@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 19:37:18 by florianprad       #+#    #+#             */
-/*   Updated: 2023/01/28 16:16:21 by fprado           ###   ########.fr       */
+/*   Created: 2023/01/28 15:33:45 by fprado            #+#    #+#             */
+/*   Updated: 2023/01/28 16:17:42 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/HumanA.hpp"
+#pragma once
+# include <iostream>
+# include "Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
+class HumanB
 {
-    this->name = name;
-    this->weapon = weapon;
-    
-    return ;
-}
-
-HumanA::~HumanA()
-{
-    return ;
-}
-
-
-void HumanA::attack(void)
-{
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl; 
-}
-
-void HumanA::setWeapon(Weapon weapon)
-{
-    this->weapon = weapon;
-    return ;
-}
+    private:
+        std::string name;
+        Weapon weapon;
+    public:
+        HumanB(void);
+        HumanB(std::string name);
+        ~HumanB(void);
+        void setWeapon(Weapon weapon);
+        void attack(void);        
+};

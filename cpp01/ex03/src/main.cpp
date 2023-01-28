@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprado <fprado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 19:37:18 by florianprad       #+#    #+#             */
-/*   Updated: 2023/01/28 16:16:21 by fprado           ###   ########.fr       */
+/*   Created: 2023/01/28 15:39:45 by fprado            #+#    #+#             */
+/*   Updated: 2023/01/28 16:14:25 by fprado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/HumanA.hpp"
+#include "../inc/HumanB.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
-{
-    this->name = name;
-    this->weapon = weapon;
-    
-    return ;
+int main() {
+  {
+    Weapon  club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
 }
-
-HumanA::~HumanA()
 {
-    return ;
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
 }
-
-
-void HumanA::attack(void)
-{
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl; 
-}
-
-void HumanA::setWeapon(Weapon weapon)
-{
-    this->weapon = weapon;
-    return ;
+return 0;
 }
