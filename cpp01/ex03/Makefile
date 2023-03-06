@@ -30,7 +30,7 @@ HEAD		=	./
 
 NAME		= human
 
-CC			= clang++
+CC			= c++
 
 OBJS		= ${SRCS:.cpp=.o}
 
