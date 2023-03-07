@@ -6,27 +6,48 @@ std::string search_replace(std::string str, std::string word1, std::string word2
 {
     std::size_t found;
 
-    (void)word2;
     found = str.find (word1);
-    //Nouveau found = str.find(word1 + word2.size);
-    std::cout << found << std::endl;
-    str.erase(found, word1.size());
-    str.insert(found, word2);
-    std::cout << str << std::endl;
+    while (found != std::string::npos)
+    {
+        str.erase(found, word1.size());
+        str.insert(found, word2);
+        found = str.find(word1, found + word2.size());
+    }
     return str;
 }
 
 int main(int argc, char **argv)
 {
     std::string resultat;
-    std::string replace = ".replace";
+    const char  *name;
+    std::string line;
+    std::string oui;
+    std::fstream myfile;
+
     if (argc != 4)
     {
         std::cout << "Wrong arguments" << std::endl;
         return 0;
     }
 
-    resultat = argv[1] + replace;
-    //std::ofstream (resultat);
-    search_replace("coucou lourd je suis une mit cache", "lourd", "qwer");
+    myfile.open(argv[1], std::ios::in);
+    if (!myfile)
+    {
+        std::cout << "no such file"  << std::endl;
+        return 0;
+    }
+
+    resultat = argv[1] + (std::string)".replace";
+    name = resultat.c_str();
+    std::ofstream outfile (name);
+    std::getline(myfile, line);
+    while (!myfile.eof())
+    {
+        std::cout << oui << std::endl;
+        oui = search_replace(line, argv[2], argv[3]);
+        outfile << oui << std::endl;,
+        std::getline(myfile, line);
+    }
+    outfile.close();
+    return 0;
 }

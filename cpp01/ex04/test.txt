@@ -1,0 +1,9 @@
+The first statement declares a variable of type int called age, 
+and the second extracts from cin a value to be stored in it. This 
+
+operation makes the program wait for input from cin; generally, this means 
+that the program will wait for the user to enter some sequence with the keyboard. 
+In this case, note that the characters introduced using the keyboard are only transmitted t
+o the program when the ENTER (or RETURN) key is pressed. Once the statement with the extraction 
+operation on cin is reached, the program will wait for as long as needed until some input is i
+ntroduced.
