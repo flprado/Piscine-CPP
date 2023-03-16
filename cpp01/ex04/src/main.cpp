@@ -30,7 +30,7 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    myfile.open(argv[1], std::ios::in);
+    myfile.open(argv[1], std::ios::in);  l;
     if (!myfile)
     {
         std::cout << "no such file"  << std::endl;
