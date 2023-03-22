@@ -1,35 +1,52 @@
-NAME			=	Fixed
+CXX := c++
 
-SRC_DIR		=	./src/
-OBJ_DIR		=	obj/
+CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-INCS_DIR	=	./inc
-MAIN_INC	= -I $(INCS_DIR)
-INCS		=	$(shell find $(INCS_DIR) -type f -name "*.hpp")
+PROJECT := fixed
 
-SRC			=	main.cpp \
-				Fixed.cpp \
-				
-OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
+HEADER_SRCS :=
 
-CC				=	clang++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98
+SRCS := main.cpp \
+	Fixed.cpp
 
-$(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp $(INCS)
-		@mkdir -p $(OBJ_DIR)
-		$(CC) ${CFLAGS}  $(MAIN_INC) -o $@ -c $<
+OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
-$(NAME)		:	$(OBJ) $(INCS)
-		$(CC) $(CFLAGS) $(OBJ) $(MAIN_INC) -o $(NAME)
-					
-all			:	$(NAME)
+OBJS_DIRS := $(sort $(dir $(OBJS)))
 
-clean		:
-		@rm -rf $(OBJ_DIR)
+INCLUDE := $(sort $(addprefix -I,$(dir $(HEADER_SRCS))))
 
-fclean		:	clean
-		@rm -rf $(NAME)
+NAME := $(PROJECT)
 
-re			:	fclean	all
+all: $(NAME)
 
-.PHONY		:	all clean fclean re
+$(NAME): Makefile $(OBJS)
+	$(CXX) $(CFLAGS) $(OBJS) -o $@
+
+$(OBJS): | $(OBJS_DIRS)
+
+$(OBJS_DIRS):
+	mkdir -p $@
+
+objs/%.o: src/%.cpp $(HEADER_SRCS)
+	$(CXX) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+clean:
+	rm -rf $(OBJS)
+	@echo "[INFO] Objects removed!"
+
+fclean: clean
+	$(RM) $(NAME)
+	@echo "[INFO] $(NAME) removed!"
+
+
+ffclean:
+	rm -rf $(OBJS_DIRS)
+	$(RM) $(NAME)
+
+re: fclean all
+
+norme:
+	@norminette
+
+.PHONY: all clean fclean ffclean re norme
+

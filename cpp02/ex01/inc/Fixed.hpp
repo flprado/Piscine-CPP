@@ -1,28 +1,23 @@
-#ifndef FIXED_CLASS
-#define FIXED_CLASS
-
+#pragma once
 #include <iostream>
 #include <cmath>
 
 class Fixed
 {
-public:
-	Fixed();
-	Fixed(const int n);
-	Fixed(const float f);
-	~Fixed();
-	Fixed(const Fixed &f);
-	Fixed & operator =(const Fixed &f);
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
-	float toFloat( void ) const;
-	int toInt( void ) const;
-
-private:
-	int	_value;
-	static const int _fraction = 8;
-}; 
-
-std::ostream& operator << (std::ostream& os ,const Fixed& f);
-
-#endif
+    private: 
+        int fix;
+        static const int frac = 8;
+     
+    public: 
+        Fixed(); // constructeur par defaut: Fixed a()
+        Fixed(const int a);//todo
+        Fixed(const float a);//todo
+        ~Fixed(); // appele tout seul
+        Fixed(const Fixed &x); // constructeur copie fixed b = Fixed(a)
+        Fixed &operator=(const Fixed &);
+        float toFloat(void) const;//todo
+        int toInt(void) const;//todo
+        int getRawBits(void) const;
+        void setRawbits(int const raw);
+};
+        std::ostream  &operator<<(std::ostream &out, const Fixed &fixed);//todo
