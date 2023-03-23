@@ -14,9 +14,14 @@
 
 int main(void)
 {
+    int i = 0;
     Zombie *horde = zombieHorde(6, "test");
     std::cout << std::endl;
-    horde->announce();
+    while (i < 6)
+    {
+        horde[i].announce();
+        i++;
+    }
     delete [] horde;
     return 0;
 }

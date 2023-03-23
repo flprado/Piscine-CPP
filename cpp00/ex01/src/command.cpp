@@ -14,30 +14,29 @@
 
 void newContact(phoneBook *repertory)
 {
-    if (repertory->nbContact > 8)
-    {
-        std::cout << "a faire";
-    }
+    int tmp;
+    if (repertory->nbContact >= 8)
+        tmp = (repertory->nbContact%8);
     else
-    {
-        std::cout << "What is your first name ?" << std::endl;
-        std::cin >> repertory->contacts[repertory->nbContact].firstName;
-        std::cout << "What is your last name ? " << std::endl;
-        std::cin >> repertory->contacts[repertory->nbContact].lastName;
-        std::cout << "What is your Nickname ?" << std::endl;
-        std::cin >> repertory->contacts[repertory->nbContact].nickname;
-        std::cout << "What is your phone number ?" << std::endl;
-        std::cin >> repertory->contacts[repertory->nbContact].phoneNumber;
-        std::cout << "What is your darkest secret ?" << std::endl;
-        std::cin >> repertory->contacts[repertory->nbContact].darkestSecret;
-        repertory->nbContact++;
-    }
+        tmp = repertory->nbContact;
+    std::cout<<"tmp = " << tmp << std::endl;
+    std::cout << "What is your first name ?" << std::endl;
+    std::cin >> repertory->contacts[tmp].firstName;
+    std::cout << "What is your last name ? " << std::endl;
+    std::cin >> repertory->contacts[tmp].lastName;
+    std::cout << "What is your Nickname ?" << std::endl;
+    std::cin >> repertory->contacts[tmp].nickname;
+    std::cout << "What is your phone number ?" << std::endl;
+    std::cin >> repertory->contacts[tmp].phoneNumber;
+    std::cout << "What is your darkest secret ?" << std::endl;
+    std::cin >> repertory->contacts[tmp].darkestSecret;
+    repertory->nbContact++;
 }
 
 int    ft_show(phoneBook *repertory, char *str)
 {
     int valeur;
-    if (sscanf(str, "%d", &valeur) != 1)
+    if (std::sscanf(str, "%d", &valeur) != 1)
     {
         std::cout << "Error: You must enter an integer" << std::endl;
         return (0);
@@ -54,13 +53,15 @@ int    ft_show(phoneBook *repertory, char *str)
 void searchContact(phoneBook    *repertory)
 {
     size_t      index;
-    int         cmp;
     std::string str;
     int         out;
 
     out = 0;
-    cmp = 0;
-    index = repertory->nbContact;
+
+    if (repertory->nbContact > 8)
+        index = 8;
+    else
+        index = repertory->nbContact;
     if (index == 0)
     {
         std::cout << "You have zero contact in your repertory, please add one" << std::endl << std::endl;
@@ -98,7 +99,10 @@ void searchContact(phoneBook    *repertory)
     
     while (out == 0)
     {
-        std::cout << "Please enter a valid index between " << 0 << " and " << repertory->nbContact - 1 << std::endl;
+        if (repertory->nbContact > 8)
+            std::cout << "Please enter a valid index between " << 0 << " and " << 7 << std::endl;
+        else
+            std::cout << "Please enter a valid index between " << 0 << " and " << repertory->nbContact - 1 << std::endl;
         std::getline(std::cin, str);
         out = ft_show(repertory, (char *)str.c_str());
     }

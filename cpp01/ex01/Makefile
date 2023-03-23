@@ -1,61 +1,53 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: florianprado <florianprado@student.42.f    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/27 18:01:45 by florianprad       #+#    #+#              #
-#    Updated: 2023/01/27 18:09:28 by florianprad      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CXX := c++
 
+CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NC = \033[0m
-RED = \033[0;91m
-ORANGE = \033[93m
-GREEN = \033[0;92m
-PURPLE = \033[0;95m
-BLUE = \033[0;34m
-BOLD = \033[1m
+PROJECT := zombie
 
-SRCS		=	./src/zombie.cpp \
-				./src/main.cpp \
-				./src/zombieHorde.cpp
+HEADER_SRCS :=
 
-INCLUDES	=	./inc/zombie.hpp \
+SRCS := main.cpp \
+		zombie.cpp \
+		zombieHorde.cpp
 
-HEAD		=	./inc
+OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
-NAME		= Zombie
+OBJS_DIRS := $(sort $(dir $(OBJS)))
 
-CC			= clang++
+INCLUDE := $(sort $(addprefix -I,$(dir $(HEADER_SRCS))))
 
-OBJS		= ${SRCS:.cpp=.o}
+NAME := $(PROJECT)
 
-RM			= rm -f
+all: $(NAME)
 
-CFLAGS		= -Wall -Wextra -Werror
+$(NAME): Makefile $(OBJS)
+	$(CXX) $(CFLAGS) $(OBJS) -o $@
 
-.c.o:
-		@${CC} ${CFLAGS} -I${HEAD} -c $< -o ${<:.cpp=.o}
-		@echo "${GREEN}[ OK ]	${ORANGE}${<:.s=.o}${NC}"
+$(OBJS): | $(OBJS_DIRS)
 
+$(OBJS_DIRS):
+	mkdir -p $@
 
-all:		${NAME}
-
-${NAME}:	${OBJS}
-			@${CC} ${CFLAGS} -I${HEAD} -o ${NAME} $(OBJS)
-			@echo "${GREEN}Zombie program	has been created\n${NC}"
+objs/%.o: src/%.cpp $(HEADER_SRCS)
+	$(CXX) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-			@${RM} ${OBJS}
-			@echo "${GREEN}[ OK ]${RED}	*.o files	deleted${NC}"
+	rm -rf $(OBJS)
+	@echo "[INFO] Objects removed!"
 
-fclean:		clean
-			@${RM} ${NAME}
-			@echo "${GREEN}[ OK ]${RED}Zombie program	deleted${NC}"
+fclean: clean
+	$(RM) $(NAME)
+	@echo "[INFO] $(NAME) removed!"
 
-re :		fclean all
 
-.PHONY:		all	clean	fclean re
+ffclean:
+	rm -rf $(OBJS_DIRS)
+	$(RM) $(NAME)
+
+re: fclean all
+
+norme:
+	@norminette
+
+.PHONY: all clean fclean ffclean re norme
+
