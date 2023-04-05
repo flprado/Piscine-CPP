@@ -9,7 +9,7 @@ HEADER_SRCS :=	inc/contact.hpp \
 				inc/phonebook.hpp \
 
 SRCS :=	phonebook.cpp	\
-		command.cpp
+		contact.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 

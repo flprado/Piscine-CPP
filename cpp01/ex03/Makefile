@@ -10,53 +10,58 @@
 #                                                                              #
 # **************************************************************************** #
 
-NC = \033[0m
-RED = \033[0;91m
-ORANGE = \033[93m
-GREEN = \033[0;92m
-PURPLE = \033[0;95m
-BLUE = \033[0;34m
-BOLD = \033[1m
+CXX := c++
 
-SRCS		=	./src/main.cpp \
-				./src/HumanA.cpp \
-				./src/HumanB.cpp \
-				./src/Weapon.cpp
-INCLUDES	=	 ./inc/HumanA.hpp \
-				 ./inc/humanB.hpp \
-				 ./inc/Weapon.hpp
+CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-HEAD		=	./
+PROJECT := human
 
-NAME		= human
+HEADER_SRCS :=	inc/HumanA.hpp \
+				inc/HumanB.hpp \
+				inc/Weapon.hpp
 
-CC			= c++
+SRCS :=	HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
+		main.cpp
 
-OBJS		= ${SRCS:.cpp=.o}
+OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
-RM			= rm -f
+OBJS_DIRS := $(sort $(dir $(OBJS)))
 
-CFLAGS		= -Wall -Wextra -Werror
+INCLUDE := $(sort $(addprefix -I,$(dir $(HEADER_SRCS))))
 
-.c.o:
-		@${CC} ${CFLAGS} -I${HEAD} -c $< -o ${<:.cpp=.o}
-		@echo "${GREEN}[ OK ]	${ORANGE}${<:.s=.o}${NC}"
+NAME := $(PROJECT)
 
+all: $(NAME)
 
-all:		${NAME}
+$(NAME): Makefile $(OBJS)
+	$(CXX) $(CFLAGS) $(OBJS) -o $@
 
-${NAME}:	${OBJS}
-			@${CC} ${CFLAGS} -I${HEAD} -o ${NAME} $(OBJS)
-			@echo "${GREEN}human program	has been created\n${NC}"
+$(OBJS): | $(OBJS_DIRS)
+
+$(OBJS_DIRS):
+	mkdir -p $@
+
+objs/%.o: src/%.cpp $(HEADER_SRCS)
+	$(CXX) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-			@${RM} ${OBJS}
-			@echo "${GREEN}[ OK ]${RED}	*.o files	deleted${NC}"
+	rm -rf $(OBJS)
+	@echo "[INFO] Objects removed!"
 
-fclean:		clean
-			@${RM} ${NAME}
-			@echo "${GREEN}[ OK ]${RED}human program	deleted${NC}"
+fclean: clean
+	$(RM) $(NAME)
+	@echo "[INFO] $(NAME) removed!"
 
-re :		fclean all
 
-.PHONY:		all	clean	fclean re
+ffclean:
+	rm -rf $(OBJS_DIRS)
+	$(RM) $(NAME)
+
+re: fclean all
+
+norme:
+	@norminette
+
+.PHONY: all clean fclean ffclean re norme

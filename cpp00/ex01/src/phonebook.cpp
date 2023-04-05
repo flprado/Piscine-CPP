@@ -5,17 +5,15 @@ int main(int argc,  char    **argv)
 {
     (void)argc;
     (void)argv;
-   // int i = 0;
     std::string str;
     phoneBook repertory;
     repertory.nbContact = 0;
-    std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
-    while (str != "EXIT")
+    while (str != "EXIT" || std::cin.eof())
     {
-        std::getline(std::cin, str);
-        if (str == "EXIT")
+        if (str == "EXIT" || std::cin.eof())
             return (0);
         std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
+        std::getline(std::cin, str);
         std::cout << "";
         if (str == "ADD")
             newContact(&repertory);

@@ -5,13 +5,13 @@
 class Fixed
 {
     private: 
-        int a;
-        static const int b;
+        int fix;
+        static const int frac = 8;
      
     public: 
-        Fixed(); // constructeur par defaut: Fixed a()
-        ~Fixed(); // appele tout seul
-        Fixed(const Fixed &x); // constructeur copie fixed b = Fixed(a)
+        Fixed();
+        ~Fixed(); 
+        Fixed(const Fixed &x); 
         Fixed &operator=(const Fixed &);
         int getRawBits(void) const;
         void setRawbits(int const raw);

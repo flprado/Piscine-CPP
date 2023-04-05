@@ -4,8 +4,7 @@
 
 
 
-class Harl
-{
+class Harl {
     public:
         void complain(std::string level);
     private:

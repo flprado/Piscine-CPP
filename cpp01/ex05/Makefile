@@ -4,10 +4,10 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 PROJECT := harl
 
-HEADER_SRCS :=	
+HEADER_SRCS :=	inc/harl.hpp
 
-SRCS :=	main.cpp \
-		harl.cpp
+SRCS :=	harl.cpp \
+		main.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 

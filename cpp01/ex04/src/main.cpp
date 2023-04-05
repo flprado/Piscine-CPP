@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     const char  *name;
     std::string line;
     std::string oui;
-    std::fstream myfile;
+    std::ifstream myfile;
 
     if (argc != 4)
     {
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    myfile.open(argv[1], std::ios::in);  l;
+    myfile.open(argv[1], std::ios::in);
     if (!myfile)
     {
         std::cout << "no such file"  << std::endl;
@@ -40,13 +40,13 @@ int main(int argc, char **argv)
     resultat = argv[1] + (std::string)".replace";
     name = resultat.c_str();
     std::ofstream outfile (name);
-    std::getline(myfile, line);
     while (!myfile.eof())
-    {
-        std::cout << oui << std::endl;
-        oui = search_replace(line, argv[2], argv[3]);
-        outfile << oui << std::endl;,
+    {     
         std::getline(myfile, line);
+        oui = search_replace(line, argv[2], argv[3]);
+        outfile << oui;
+        if (!myfile.eof())
+            outfile << std::endl;
     }
     outfile.close();
     return 0;

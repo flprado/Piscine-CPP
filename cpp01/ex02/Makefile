@@ -10,49 +10,53 @@
 #                                                                              #
 # **************************************************************************** #
 
-NC = \033[0m
-RED = \033[0;91m
-ORANGE = \033[93m
-GREEN = \033[0;92m
-PURPLE = \033[0;95m
-BLUE = \033[0;34m
-BOLD = \033[1m
+CXX := c++
 
-SRCS		=	./main.cpp
+CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-INCLUDES	=	 ./
+PROJECT := brain
 
-HEAD		=	./
+HEADER_SRCS := 
 
-NAME		= string
+SRCS := main.cpp
 
-CC			= clang++
+OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
-OBJS		= ${SRCS:.cpp=.o}
+OBJS_DIRS := $(sort $(dir $(OBJS)))
 
-RM			= rm -f
+INCLUDE := $(sort $(addprefix -I,$(dir $(HEADER_SRCS))))
 
-CFLAGS		= -Wall -Wextra -Werror
+NAME := $(PROJECT)
 
-.c.o:
-		@${CC} ${CFLAGS} -I${HEAD} -c $< -o ${<:.cpp=.o}
-		@echo "${GREEN}[ OK ]	${ORANGE}${<:.s=.o}${NC}"
+all: $(NAME)
 
+$(NAME): Makefile $(OBJS)
+	$(CXX) $(CFLAGS) $(OBJS) -o $@
 
-all:		${NAME}
+$(OBJS): | $(OBJS_DIRS)
 
-${NAME}:	${OBJS}
-			@${CC} ${CFLAGS} -I${HEAD} -o ${NAME} $(OBJS)
-			@echo "${GREEN}BRAIN program	has been created\n${NC}"
+$(OBJS_DIRS):
+	mkdir -p $@
+
+objs/%.o: src/%.cpp $(HEADER_SRCS)
+	$(CXX) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-			@${RM} ${OBJS}
-			@echo "${GREEN}[ OK ]${RED}	*.o files	deleted${NC}"
+	rm -rf $(OBJS)
+	@echo "[INFO] Objects removed!"
 
-fclean:		clean
-			@${RM} ${NAME}
-			@echo "${GREEN}[ OK ]${RED}BRAIN program	deleted${NC}"
+fclean: clean
+	$(RM) $(NAME)
+	@echo "[INFO] $(NAME) removed!"
 
-re :		fclean all
 
-.PHONY:		all	clean	fclean re
+ffclean:
+	rm -rf $(OBJS_DIRS)
+	$(RM) $(NAME)
+
+re: fclean all
+
+norme:
+	@norminette
+
+.PHONY: all clean fclean ffclean re norme

@@ -7,7 +7,7 @@ PROJECT := fixed
 HEADER_SRCS :=
 
 SRCS := main.cpp \
-	Fixed.cpp
+		Fixed.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
 
