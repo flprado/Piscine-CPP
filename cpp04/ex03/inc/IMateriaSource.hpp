@@ -1,5 +1,5 @@
 #pragma once
-#include "IMateria.hpp"
+#include "AMateria.hpp"
 
 class IMateriaSource
 {

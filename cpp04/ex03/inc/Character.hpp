@@ -9,7 +9,9 @@ class Character : public ICharacter
     public:
         Character();
         ~Character();
-        Character(std::string name);
+        Character(const std::string &name);
+        Character(const Character &character);
+        Character &operator=(const Character &character);
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);

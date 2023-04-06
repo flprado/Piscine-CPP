@@ -6,9 +6,9 @@ class Ice : public AMateria{
         std::string type;
     public:
         Ice();
-        ~Ice();
-        Ice &operator=(const Ice &ice);
+       virtual ~Ice();
         Ice(const Ice &Ice);
+        Ice &operator=(const Ice &ice);
         Ice *clone() const;
         void use(ICharacter &target);
 

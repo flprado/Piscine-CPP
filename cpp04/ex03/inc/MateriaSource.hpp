@@ -3,9 +3,13 @@
 
 class MateriaSource : public IMateriaSource
 {
-
+    protected:
+        AMateria    *inventory[4];
     public:
-        virtual ~IMateriaSource();
-        virtual void learnMateria(AMateria*);
-        virtual AMateria* createMateria(std::string const & type);
+        MateriaSource();
+        MateriaSource(const MateriaSource &materiasource);
+        virtual ~MateriaSource();
+        MateriaSource &operator=(const MateriaSource &materiasouce);
+        void learnMateria(AMateria *m);
+        AMateria* createMateria(std::string const & type);
 };

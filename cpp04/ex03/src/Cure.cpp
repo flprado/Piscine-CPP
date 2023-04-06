@@ -1,20 +1,22 @@
 #include "Cure.hpp"
 
-#include "Cure.hpp"
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
-    this->type = "cure";
 }
 
 Cure::~Cure()
 {
 }
 
+Cure::Cure(const Cure &cure) : AMateria(cure)
+{
+    *this = cure;
+}
+
 Cure &Cure::operator=(const Cure &cure)
 {
-    if (this->type != "cure")
-        this->type = cure.getType();
+    (void)cure;
     return *this;
 }
 

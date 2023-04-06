@@ -8,13 +8,15 @@ HEADER_SRCS :=	inc/AMateria.hpp \
 				inc/Cure.hpp \
 				inc/Ice.hpp \
 				inc/Character.hpp \
+				inc/MateriaSource.hpp \
+				inc/IMateriaSource.hpp \
 				inc/ICharacter.hpp
 
 SRCS :=	AMateria.cpp \
 		Cure.cpp \
 		Ice.cpp \
+		MateriaSource.cpp \
 		Character.cpp \
-		ICharacter.cpp \
 		main.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))
