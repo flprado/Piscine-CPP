@@ -8,10 +8,10 @@ class Animals {
         std::string type;
     public:
         Animals();
-        virtual ~Animals();
+        virtual ~Animals() = 0;
         Animals(std::string type);
         Animals &operator=(const Animals &animals);
         std::string getType() const;
         void setType(std::string type);
-        virtual void MakeSound() const;
+        virtual void MakeSound()const;
 };

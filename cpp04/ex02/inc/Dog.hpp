@@ -7,7 +7,7 @@ class Dog : public Animals{
     Brain *brain;
     public:
     Dog();
-    ~Dog();
+    virtual ~Dog();
     Dog &operator=(const Dog dog);
-    void MakeSound() const;
+    virtual void MakeSound() const;
 };

@@ -6,7 +6,7 @@
 
 int main()
 {
-    const Animals* meta = new Animals();
+    //const Animals* meta = new Animals();
     const Animals* j = new Dog();
     const Animals* i = new Cat();
     const WrongAnimal *k = new WrongCat();
@@ -16,7 +16,7 @@ int main()
     i->MakeSound(); //will output the cat sound!
     j->MakeSound();
     k->MakeSound();
-    meta->MakeSound();
+    //meta->MakeSound();
 
     delete i;
     
