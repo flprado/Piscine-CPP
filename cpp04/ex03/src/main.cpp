@@ -2,11 +2,12 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "ICharacter.hpp"
+#include "Character.hpp"
 
 int main()
 {
-    ICharacter *me = new ICharacter("me");
-    ICharacter *bob = new ICharacter("bob");
+    Character *me = new Character("me");
+    Character *bob = new Character("bob");
     AMateria *tpm = new AMateria("ice");
     me->equip(tpm);
     delete me;

@@ -7,11 +7,13 @@ PROJECT := Animal
 HEADER_SRCS :=	inc/AMateria.hpp \
 				inc/Cure.hpp \
 				inc/Ice.hpp \
+				inc/Character.hpp \
 				inc/ICharacter.hpp
 
 SRCS :=	AMateria.cpp \
 		Cure.cpp \
 		Ice.cpp \
+		Character.cpp \
 		ICharacter.cpp \
 		main.cpp
 

@@ -1,35 +1,33 @@
-#include "ICharacter.hpp"
+#include "Character.hpp"
 
-ICharacter::ICharacter()
+Character::Character()
 {
-    this->inventory = new AMateria[4];
     this->name = "noName";
 }
 
-ICharacter::ICharacter(std::string name)
+Character::Character(std::string name)
 {
-    this->inventory = new AMateria[4];
     this->name = name;
 }
 
-ICharacter::~ICharacter()
+Character::~Character()
 {
-    delete this->inventory;
+    //delete this->inventory;
 }
 
-std::string const &ICharacter::getName() const
+std::string const &Character::getName() const
 {
     return this->name;
 }
 
-void equip(AMateria *m)
+void Character::equip(AMateria *m)
 {
     for (int i = 0; i < 4 ; i++)
     {
         if (this->inventory[i] != NULL)
         {
             this->inventory[i] = m;
-            std::cout << m.getType() << " equiped in " << i << "th slot in inventory" << std::endl;
+            std::cout << m->getType() << " equiped in " << i << "th slot in inventory" << std::endl;
             return ;
         }
     }

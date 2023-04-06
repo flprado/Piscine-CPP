@@ -12,14 +12,14 @@ Ice::~Ice()
 Ice &Ice::operator=(const Ice &ice)
 {
     if (this->type != "ice")
-        this->type = "ice";
+        this->type = ice.getType();
     return *this;
 }
 
-Ice *Ice::clone()
+Ice *Ice::clone() const
 {
-    Ice ice = new Ice();
-    return *ice;
+    Ice *ice = new Ice();
+    return ice;
 }
 
 void Ice::use(ICharacter &target)
