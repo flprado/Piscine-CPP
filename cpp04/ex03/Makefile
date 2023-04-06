@@ -4,19 +4,15 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 PROJECT := Animal
 
-HEADER_SRCS :=	inc/Animals.hpp \
-				inc/WrongAnimal.hpp\
-				inc/WrongCat.hpp \
-				inc/Brain.hpp \
-				inc/Cat.hpp \
-				inc/Dog.hpp
+HEADER_SRCS :=	inc/AMateria.hpp \
+				inc/Cure.hpp \
+				inc/Ice.hpp \
+				inc/ICharacter.hpp
 
-SRCS :=	Animals.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Cat.cpp \
-		Brain.cpp \
-		Dog.cpp \
+SRCS :=	AMateria.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		ICharacter.cpp \
 		main.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))

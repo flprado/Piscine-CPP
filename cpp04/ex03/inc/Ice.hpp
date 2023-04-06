@@ -1,3 +1,4 @@
+#pragma once
 #include "AMateria.hpp"
 
 class Ice : public AMateria{
@@ -6,8 +7,8 @@ class Ice : public AMateria{
     public:
         Ice();
         ~Ice();
-        Ice &operator=(const Ice &Ice);
+        Ice &operator=(const Ice &ice);
         Ice(const Ice &Ice);
-        Ice clone();
+        Ice *clone();
 
 };
