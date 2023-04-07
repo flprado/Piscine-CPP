@@ -11,7 +11,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-    std::cout << "Constructor with name called" << std::endl;
+    std::cout << "ClapTrap Constructor with name called" << std::endl;
     this->name = name;
     this->hitPoint = 10;
     this->energy = 10;
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap &ClapTrap::operator =(const ClapTrap &c)
 {
-    std::cout << "Operator = called" << std::endl;
+    std::cout << "ClapTrap Operator = called" << std::endl;
     this->name = c.name;
     this->hitPoint = c.hitPoint;
     this->energy = c.energy;
@@ -31,7 +31,7 @@ ClapTrap &ClapTrap::operator =(const ClapTrap &c)
 
 ClapTrap::ClapTrap(const ClapTrap &c)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     *this = c;
 }
 
@@ -46,7 +46,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         energy -= 1;
         this->hitPoint += amount;
-        std::cout << this->name << " repaired " << amount << " of Hit Point, it is now at " << this->hitPoint << " HP." << std::endl;
+        std::cout << this->name << " repaired " << amount << " Hit Point, it is now at " << this->hitPoint << " HP." << std::endl;
     }
     else if (this->hitPoint <= 0)
         std::cout << this->name << " is dead, cannot repair." << std::endl;

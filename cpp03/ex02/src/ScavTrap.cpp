@@ -24,7 +24,7 @@ void    ScavTrap::guardGate()
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap default destructor called" << std::endl;
+    std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &scav)

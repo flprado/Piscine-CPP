@@ -1,44 +1,45 @@
 #include "../inc/ScavTrap.hpp"
+#include "../inc/FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("ScavTrap")
+FragTrap::FragTrap() : ClapTrap("FragTrap")
 {
-    this->attackDamage = 20;
+    this->attackDamage = 30;
     this->hitPoint = 100;
-    this->energy = 50;
-    std::cout << "ScavTrap default  constructor called " << std::endl;
+    this->energy = 100;
+    std::cout << "FragTrap default  constructor called " << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+FragTrap::FragTrap(std::string name)
 {
     this->name = name;
-    this->attackDamage = 20;
+    this->attackDamage = 30;
     this->hitPoint = 100;
-    this->energy = 50;
-    std::cout << "ScavTrap constructor with name called "<< std::endl;
+    this->energy = 100;
+    std::cout << "FragTrap constructor with name called "<< std::endl;
 }
 
-void    ScavTrap::guardGate()
+void    FragTrap::highFivesGuys()
 {
-    std::cout << this->name << " passed in Gate Keeper mode " << std::endl;
+    std::cout << "Who's up for a high five ?!" << std::endl;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-    std::cout << "ScavTrap default destructor called" << std::endl;
+    std::cout << "FragTrap destructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap const &scav)
+FragTrap &FragTrap::operator=(FragTrap const &frag)
 {
     std::cout << "Scav equal operator called" << std::endl;
-    this->name = scav.name;
-    this->attackDamage = scav.attackDamage;
-    this->hitPoint = scav.hitPoint;
-    this->energy = scav.energy;
+    this->name = frag.name;
+    this->attackDamage = frag.attackDamage;
+    this->hitPoint = frag.hitPoint;
+    this->energy = frag.energy;
     return *this;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scav) : ClapTrap()
+FragTrap::FragTrap(const FragTrap &frag) : ClapTrap()
 {
     std::cout << "Scav Copy constructor called "<< std::endl;
-    *this = scav;
+    *this = frag;
 }

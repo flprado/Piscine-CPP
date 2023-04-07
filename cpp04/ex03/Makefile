@@ -2,7 +2,7 @@ CXX := c++
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-PROJECT := Animal
+PROJECT := Materia
 
 HEADER_SRCS :=	inc/AMateria.hpp \
 				inc/Cure.hpp \

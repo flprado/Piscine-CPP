@@ -1,10 +1,17 @@
 #include "../inc/ScavTrap.hpp"
-int main()
+#include "../inc/FragTrap.hpp"
+
+
+int	main(void)
 {
-    ScavTrap test;
-    ScavTrap test2(test);
-    //ScavTrap test3 = test;
-    //test.guardGate();
-    //test.attack("cow");
-    return 0;
+	ClapTrap henk("Henk");
+	ClapTrap peter("Peter");
+    ScavTrap harry("Harry");
+	henk.takeDamage(5);
+	peter.attack("Piet");
+	peter.beRepaired(3);
+    harry.guardGate();
+	FragTrap peer("Peer");
+	peer.highFivesGuys();
+
 }
