@@ -11,7 +11,7 @@ class Bureaucrat
         int _grade;
     public:
         Bureaucrat();
-        ~Bureaucrat();
+        virtual ~Bureaucrat();
         Bureaucrat(const std::string &name, int grade);
         Bureaucrat(const Bureaucrat &Bureaucrat);
 
@@ -33,5 +33,6 @@ class Bureaucrat
         void upGrade(void);
         void downGrade(void);
         void signForm(Form &form) const;
+        void executeForm(const Form &form) const;
 };
         std::ostream  &operator<<(std::ostream &out,const Bureaucrat &bureaucrat);
