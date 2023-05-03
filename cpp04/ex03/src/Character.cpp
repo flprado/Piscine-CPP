@@ -50,7 +50,7 @@ void Character::equip(AMateria *m)
 {
     for (int i = 0; i < 4 ; i++)
     {
-        if (inventory[i] != NULL)
+        if (inventory[i] == NULL)
         {
             inventory[i] = m;
             std::cout << m->getType() << " equiped in " << i << "th slot in inventory" << std::endl;

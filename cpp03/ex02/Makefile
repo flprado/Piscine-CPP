@@ -2,13 +2,15 @@ CXX := c++
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-PROJECT := ScavTrap
+PROJECT := FragTrap
 
 HEADER_SRCS :=	inc/ClapTrap.hpp \
-				inc/ScavTrap.hpp
+				inc/ScavTrap.hpp \
+				inc/FragTrap.hpp
 
 SRCS :=	ClapTrap.cpp \
 		ScavTrap.cpp \
+		FragTrap.cpp \
 		main.cpp
 
 OBJS := $(addprefix objs/, $(SRCS:.cpp=.o))

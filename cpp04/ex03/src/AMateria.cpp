@@ -16,6 +16,10 @@ AMateria::AMateria (const AMateria &aMateria)
     *this = aMateria;
 }
 
+AMateria::~AMateria ()
+{
+}
+
 AMateria &AMateria::operator=(const AMateria &aMateria)
 {
     if (this != &aMateria)

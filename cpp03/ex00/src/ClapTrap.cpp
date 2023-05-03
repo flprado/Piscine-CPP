@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap Default constructor called" << std::endl;
     this->name = "ClapTrap";
     this->hitPoint = 10;
     this->energy = 10;
@@ -11,7 +11,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-    std::cout << "Constructor with name called" << std::endl;
+    std::cout << "ClapTrap Constructor with name called" << std::endl;
     this->name = name;
     this->hitPoint = 10;
     this->energy = 10;
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap &ClapTrap::operator =(const ClapTrap &c)
 {
-    std::cout << "Operator = called" << std::endl;
+    std::cout << "ClapTrap Operator = called" << std::endl;
     this->name = c.name;
     this->hitPoint = c.hitPoint;
     this->energy = c.energy;
@@ -31,13 +31,13 @@ ClapTrap &ClapTrap::operator =(const ClapTrap &c)
 
 ClapTrap::ClapTrap(const ClapTrap &c)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     *this = c;
 }
 
 ClapTrap::~ClapTrap()
 {
-   std::cout << "Destructor called !" << std::endl;
+   std::cout << "ClapTrap Destructor called !" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -73,7 +73,7 @@ void ClapTrap::attack(const std::string &target)
     if (this->energy > 0 && this->hitPoint > 0)
     {
         this->energy -= 1;
-        std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+        std::cout << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
     }
     else if (this->hitPoint <=0)
         std::cout << this->name << " is dead, cannot attack." << std::endl;
